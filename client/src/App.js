@@ -1,36 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
+import './components/main'
+import Home from './components/main';
+import Details from './components/details'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+const App = () => (
+  <Router>
+    <Switch>
+    <Route path="/" exact>
+            <Home/>
+    </Route>
+    <Route path="/details" exact>
+        <Details/>
+    </Route>
+    </Switch>
+  </Router>
+);
 
 
-class  App extends Component {
-
-  state = {
-    products: []
-  }
-
-  componentDidMount() {
-    this.getBooks()
-  }
-
-  getBooks = () => {
-    fetch('http://localhost:4000/products')
-    .then(response => response.json())
-    .then(response => this.setState({products: response.data}))
-    .catch(err => console.error(err))
-  }
-
-  renderProduct = ({ id, name }) => <div key = {id}>{name}</div>
-
-
-  render() {
-    const { products } = this.state
-  return (
-    <div className="App">
-      {products.map(this.renderProduct)}
-
-    </div>
-  );
-}
-}
-
-export default App;
+  export default App
