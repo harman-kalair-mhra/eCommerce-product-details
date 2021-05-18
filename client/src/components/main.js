@@ -1,50 +1,46 @@
-import React, {Component} from 'react';
+import React, {useState, useEffect} from 'react';
 import './details'
 
-
-class  mainPage extends Component {
-
-    state = {
-      products: []
-    }
+export default function MainPage (){
   
-    componentDidMount() {
-      this.getBooks()
-    }
-    
+  const [items, setItems] = useState([]);
 
-    // handleClick = () => {
-    //   history.push('/details')
-    //   console.log('The link was clicked.');  
-    // }
-    
-    handleLink(nav) {
-        window.location.href = nav;
-        console.log('The link was clicked.')
-    }
-
-    getBooks = () => {
-      fetch('http://localhost:4000/products')
-      .then(response => response.json())
-      .then(response => this.setState({products: response.data}))
-      .catch(err => console.error(err))
-    }
   
-    renderProduct = ({ id, name }) => <div key = {id}>{name}</div>
-  
-  
-    render() {
-      const { products } = this.state
-    return (
-      <div className="App">
-        {products.map(this.renderProduct)}
-        <button onClick={()=>{this.handleLink("/details")}}>
-      SELECT
-    </button>
-      </div>
-
-    );
-  }
+  function handleLink(nav) {
+      window.location.href = nav;
+      console.log('The link was clicked.')
   }
 
-  export default mainPage
+
+  function getBooks(){
+    fetch('http://localhost:4000/products')
+    .then(response => response.json())
+    .then(response => {
+      setItems(response.data); 
+      console.log(response)
+       })
+    .catch(err => console.error(err))
+  }
+
+  useEffect(() => {
+    getBooks()
+  }, [])
+
+
+  return (
+    <React.Fragment>
+    <div className="App">
+      {items.map((product)=>{
+        return(
+          <div key = {product.id}>
+          <p>Name: {product.name}</p>
+          <p>Price: {product.price}</p>
+          <button onClick={()=>{handleLink("/details")}}>
+          SELECT
+        </button>
+        </div>
+      )})}
+    </div>
+    </React.Fragment>
+  )
+};
