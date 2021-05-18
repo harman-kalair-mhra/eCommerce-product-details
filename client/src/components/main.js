@@ -5,7 +5,7 @@ export default function MainPage (){
   
   const [items, setItems] = useState([]);
 
-  
+  // navigation link function
   function handleLink(nav) {
       window.location.href = nav;
       console.log('The link was clicked.')
@@ -22,11 +22,13 @@ export default function MainPage (){
     .catch(err => console.error(err))
   }
 
-  useEffect(() => {
+  // remembers the function passed
+  useEffect(() => { 
     getBooks()
   }, [])
 
-
+// maps the items
+// returns the mapped items
   return (
     <React.Fragment>
     <div className="App">
