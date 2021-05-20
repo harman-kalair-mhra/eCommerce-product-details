@@ -4,6 +4,7 @@ const  { connection } = require('./db')
 
 const app = express()
 
+// outputs sql connection
 console.log(connection)
 
 app.use(cors())
@@ -12,10 +13,12 @@ app.get('/', () => {
     console.log("Working")
 })
 
+// get request product details by id
+// response in json format
 app.get('/product-details/:id', (req, res) => {
     let productid = req.params.id;
+    // sql query to select book, where id = (user input)
     const SELECT_BOOKS_BY_ID = ("SELECT * FROM productdetails WHERE microservices.productdetails.id LIKE '" + productid + "'")
-
     connection.query(SELECT_BOOKS_BY_ID, (err, results) => {
         if(err) {
             return res.send(err)

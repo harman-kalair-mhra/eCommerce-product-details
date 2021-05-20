@@ -3,15 +3,10 @@ import './details'
 import styled from 'styled-components'
 export default function MainPage (){
   
+  // Returns a stateful value, and a function to update it.
   const [items, setItems] = useState([]);
 
-  // const mystyle = {
-  //   color: "white",
-  //   backgroundColor: "DodgerBlue",
-  //   padding: "10px",
-  //   fontFamily: "Arial"
-  // }
-
+  // css styling
   const StyledDetails = styled.div`
   color: green;
   font-size: 18px;
