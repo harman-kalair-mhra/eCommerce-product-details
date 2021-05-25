@@ -1,6 +1,6 @@
 import React from 'react';
 
-function detailPage(){
+function mockPage(){
     return(
         <div>
         <h1>In Progress </h1>
@@ -8,4 +8,4 @@ function detailPage(){
     )
 }
 
-export default detailPage
+export default mockPage

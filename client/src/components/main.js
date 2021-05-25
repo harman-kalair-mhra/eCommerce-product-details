@@ -1,21 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import './details'
-import styled from 'styled-components'
+import '../App.css'
+import './mockPage'
 export default function MainPage (){
   
   // Returns a stateful value, and a function to update it.
   const [items, setItems] = useState([]);
 
-  // css styling
-  const StyledDetails = styled.div`
-  color: green;
-  font-size: 18px;
-  background-color: #f5f5dc;
-  font-weight: 900
-  border-style: solid;
-  margin: 10px;
-  padding: 10px;
-`;
+
 
   // navigation link function
   // function handleLink(nav) {
@@ -24,7 +15,7 @@ export default function MainPage (){
   // }
 
   function getBooks(){
-    fetch('http://localhost:4000/product-details/7')
+    fetch('http://localhost:4000/product-details/1')
     .then(response => response.json())
     .then(response => {
       setItems(response.data); 
@@ -47,15 +38,22 @@ export default function MainPage (){
     <div className="App" >
       {items.map((product)=>{
         return(
-          <div key = {product.id}>
-            <h1>Book Details</h1>
-            <StyledDetails>
-          <p>Name: {product.name}</p>
-          <p>Details: {product.details}</p>
-          <p>Price: {product.price}</p>
-          <p>Reviews: {product.reviews}</p>
-          <p>Ratings: {product.ratings}</p>
-          </StyledDetails>
+          <div class = "wrapper" key = {product.id}>
+            <div class = "product-img">
+              <img src={product.image} alt="" height="420" width= "327"/>
+            </div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>{product.name}</h1>
+                <h2>{product.ratings}</h2>
+                <p>{product.details}</p>
+                <p>{product.reviews}</p>
+              </div>
+              <div class="product-price-btn">
+              <p>£<span>{product.price}</span></p>
+                <button type="button">buy now</button>
+              </div>
+            </div>      
         </div>
       )})}
     </div>
