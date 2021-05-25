@@ -17,7 +17,7 @@ export default function MainPage (){
 
 
   function getBooks(){
-    fetch('http://localhost:4000/product-details/5')
+    fetch('http://localhost:4000/product-details/1')
     .then(response => response.json())
     .then(response => {
       setItems(response.data); 
@@ -40,7 +40,7 @@ export default function MainPage (){
     <div className="App" >
       {items.map((product)=>{
         return(
-          <div class = "wrapper" key = {product.id}>
+          <div className = "wrapper" key = {product.id}>
             <div class = "product-img">
               <img src={product.image} alt="" height="420" width= "327"/>
             </div>
@@ -54,7 +54,7 @@ export default function MainPage (){
               </div>
               <div class="product-price-btn">
              
-             <button type="button">buy now</button>
+             <button type="button">add to basket</button>
            </div>
               <div class="product-price-btn">
               <p>£<span>{product.price}</span></p>

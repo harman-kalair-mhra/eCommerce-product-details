@@ -31,18 +31,21 @@ app.get('/product-details/:id', (req, res) => {
     })
 })
 
-// app.get('/products', (req, res) => {
-//     connection.query(SELECT_ALL_PRODUCTS, (err, results) => {
-//         if(err) {
-//             return res.send(err)
-//         }
-//         else {
-//             return res.json({
-//                 data: results
-//             })
-//         }
-//     })
-// })
+// using this get request for the mock page
+// gets all products from db
+app.get('/products', (req, res) => {
+    const SELECT_ALL_PRODUCTS = 'SELECT * FROM productdetails'
+    connection.query(SELECT_ALL_PRODUCTS, (err, results) => {
+        if(err) {
+            return res.send(err)
+        }
+        else {
+            return res.json({
+                data: results
+            })
+        }
+    })
+})
 
 
 
