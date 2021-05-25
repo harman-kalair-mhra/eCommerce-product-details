@@ -14,8 +14,10 @@ export default function MainPage (){
   //     console.log('The link was clicked.')
   // }
 
+
+
   function getBooks(){
-    fetch('http://localhost:4000/product-details/1')
+    fetch('http://localhost:4000/product-details/5')
     .then(response => response.json())
     .then(response => {
       setItems(response.data); 
@@ -48,10 +50,14 @@ export default function MainPage (){
                 <h2>{product.ratings}</h2>
                 <p>{product.details}</p>
                 <p>{product.reviews}</p>
+
               </div>
               <div class="product-price-btn">
+             
+             <button type="button">buy now</button>
+           </div>
+              <div class="product-price-btn">
               <p>£<span>{product.price}</span></p>
-                <button type="button">buy now</button>
               </div>
             </div>      
         </div>

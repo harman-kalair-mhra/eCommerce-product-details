@@ -32,7 +32,7 @@
 
 
 body {
-  background-color: #9bbd1f;
+  background-color: #252720;
 }
 
 .wrapper {
@@ -72,7 +72,7 @@ body {
 .product-text h1 {
   margin: 0 0 0 0px;
   font-size: 34px;
-  color: #474747;
+  color: #ffffff;
 }
 
 .product-text h1,
@@ -82,7 +82,7 @@ body {
 
 .product-text h2 {
   margin: 0 0 47px 38px;
-  font-size: 13px;
+  font-size: 30px;
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -94,7 +94,7 @@ body {
   height: 125px;
   margin: 0 0 0 38px;
   font-family: 'Playfair Display', serif;
-  color: #8d8d8d;
+  color: #c0c0c0;
   line-height: 1.7em;
   font-size: 15px;
   font-weight: lighter;
@@ -106,10 +106,11 @@ body {
   width: 327px;
   margin-top: 17px;
   position: relative;
+  float: right;
 }
 
 .product-price-btn p {
-  display: inline-block;
+  display:flex;
   position: absolute;
   top: -13px;
   height: 50px;
@@ -117,7 +118,7 @@ body {
   margin: 0 0 0 38px;
   font-size: 28px;
   font-weight: lighter;
-  color: #474747;
+  color: #fffbfb;
 }
 
 span {
@@ -128,10 +129,8 @@ span {
 }
 
 .product-price-btn button {
-  display: inline-block;
   height: 50px;
   width: 176px;
-  margin: 0 40px 0 16px;
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
