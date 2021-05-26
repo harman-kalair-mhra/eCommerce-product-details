@@ -52,7 +52,7 @@ function MockPage (){
               </div>
             </div>
           </div>
-      )})}
+        )})}
     </div>
     </React.Fragment>
   )

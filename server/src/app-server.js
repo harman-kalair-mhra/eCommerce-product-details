@@ -18,7 +18,7 @@ app.get('/', () => {
 app.get('/product-details/:id', (req, res) => {
     let productid = req.params.id;
     // sql query to select book, where id = (user input)
-    const SELECT_BOOKS_BY_ID = ("SELECT * FROM productdetails WHERE microservices.productdetails.id LIKE '" + productid + "'")
+    const SELECT_BOOKS_BY_ID = ("SELECT * FROM bookdetails WHERE ecommerce.bookdetails.id LIKE '" + productid + "'")
     connection.query(SELECT_BOOKS_BY_ID, (err, results) => {
         if(err) {
             return res.send(err)
@@ -34,7 +34,7 @@ app.get('/product-details/:id', (req, res) => {
 // using this get request for the mock page
 // gets all products from db
 app.get('/products', (req, res) => {
-    const SELECT_ALL_PRODUCTS = 'SELECT * FROM productdetails'
+    const SELECT_ALL_PRODUCTS = 'SELECT * FROM bookdetails'
     connection.query(SELECT_ALL_PRODUCTS, (err, results) => {
         if(err) {
             return res.send(err)
