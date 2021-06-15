@@ -47,7 +47,7 @@ function MockPage (){
                 </div>
                 <div class="product-price-btn1">
                   <p>£<span>{product.price}</span></p>   
-                  <button type="button" onClick={()=>{handleLink("/main")}}>Details</button>
+                  <button type="button" onClick={()=>{handleLink(`/main/${product.id}`)}}>Details</button>
                 </div>
               </div>
             </div>

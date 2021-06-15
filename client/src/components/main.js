@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import '../App.css'
 import './mockPage'
-export default function MainPage (){
+export default function MainPage ({match}){
   
   // Returns a stateful value, and a function to update it.
   const [items, setItems] = useState([]);
-
 
 
   // navigation link function
@@ -15,9 +14,10 @@ export default function MainPage (){
   // }
 
 
-
+  // fetches data from the server
+  // matches with product id
   function getBooks(){
-    fetch('http://localhost:4000/product-details/1')
+    fetch(`http://localhost:4000/product-details/${match.params.id}`)
     .then(response => response.json())
     .then(response => {
       setItems(response.data); 
@@ -29,7 +29,7 @@ export default function MainPage (){
   // remembers the function passed
   useEffect(() => { 
     getBooks()
-  }, [])
+  })
 
  
 
@@ -38,6 +38,7 @@ export default function MainPage (){
   return (
     <React.Fragment>
     <div className="App" >
+
       {items.map((product)=>{
         return(
           <div className = "wrapper" key = {product.id}>
